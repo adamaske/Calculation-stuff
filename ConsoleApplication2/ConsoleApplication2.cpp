@@ -15,6 +15,7 @@ int main()
 	std::getline(std::cin, equation);
 	double a = 0;
 	double b = 0;
+	
 	char oper = '+';
 	for (int i = 0; i < equation.size(); i++)
 	{
@@ -32,7 +33,7 @@ int main()
 			//P.size should be from the current equation[i] until equation[equation.size()-1] tehrefore equation.size - i is the leftovers
 			p.resize(equation.size() - i);
 			//Starting from 0 until i-1 sett the j[k] to equation[k]
-			for (int k = 0; k < i-1; k++)
+			for (int k = 0; k < i; k++)
 			{
 				j[k] = equation[k];
 			}
@@ -41,10 +42,12 @@ int main()
 			{
 				p[c] = equation[k];
 			}
+			std::cout << j << ", " << p;
+			system("pause");
 			//std::stod(string) makes the string into a double
 			a = std::stod(j);
 			b = std::stod(p);
-			break;
+			
 		}
 	}
 	std::cout << Calculate(a, b, oper);
